@@ -25,7 +25,7 @@
 	},
 
 	"hostRequirements": {
-		"cpus": 4
+		"cpus": 8
 	},
 
 	// forward ports for the app
