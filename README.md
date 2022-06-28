@@ -548,6 +548,23 @@ kic test integration
 
 ## Troubleshooting
 
+### Resetting your cluster
+
+  ```bash
+
+  # delete and create a cluster
+  kic cluster create
+
+  # delete flux files
+  rm -rf deploy/bootstrap
+
+  # update git
+  git pull
+  git commit -am "removed flux files"
+  git push
+
+  ```
+
 ### Stopping a Codespace
 
 - Codespaces will shutdown automatically after being idle for 30 minutes
@@ -566,30 +583,12 @@ kic test integration
 
 ### Deleting a Codespace
 
-    - <https://github.com/codespaces>
-    - Use the context menu to delete the Codespace
-    - Please delete your Codespace once you complete the lab
-    - Creating a new Codespace only takes about 45 seconds!
+- <https://github.com/codespaces>
+- Use the context menu to delete the Codespace
+- Please delete your Codespace once you complete the lab
+- Creating a new Codespace only takes about 45 seconds!
 
 ## FAQ
-
-- Why don't we use helm to deploy Kubernetes manifests?
-  - The target audience for this repository is app developers so we chose simplicity for the Developer Experience.
-  - In our daily work, we use Helm for deployments and it is installed in the `Codespace` should you want to use it.
-  - Flux also includes a helm-controller that allows you to declaratively use Helm in a GitOps workflow
-- Why `k3d` instead of `Kind`?
-  - We love kind! Most of our code will run unchanged in kind (except the cluster commands)
-  - We had to choose one or the other as we don't have the resources to validate both
-  - We chose k3d for these main reasons
-    - Smaller memory footprint
-    - Faster startup time
-    - Secure by default
-      - K3s supports the [CIS Kubernetes Benchmark](https://rancher.com/docs/k3s/latest/en/security/hardening_guide/)
-    - Based on [K3s](https://rancher.com/docs/k3s/latest/en/) which is a certified Kubernetes distro
-      - Many customers run K3s on the edge as well as in CI-CD pipelines
-    - Rancher provides support - including 24x7 (for a fee)
-    - K3s has a vibrant community
-    - K3s is a CNCF sandbox project
 
 - How is Codespaces built?
 
